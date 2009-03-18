@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	20080503
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Tcl extension for Virtual Filesystem support
 Group:		System Environment/Libraries
 License:	MIT
@@ -14,7 +14,7 @@ BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Provides:	tcl-vfs = %{version}-%{release}
 Provides:	%{realname} = %{version}-%{release}
 BuildRequires:	tcl-devel, tk-devel
-Requires:	tcl(abi) = 8.5
+Requires:	tcl(abi) = 8.5, tcl-trf
 
 %description
 The TclVfs project aims to provide an extension to the Tcl language which 
@@ -47,6 +47,9 @@ rm -rf %{buildroot}
 %{_mandir}/mann/vfs*
 
 %changelog
+* Wed Mar 18 2009 Tom "spot" Callaway <tcallawa@redhat.com> 20080503-3
+- add Requires: tcl-trf
+
 * Wed Feb 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 20080503-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
 
