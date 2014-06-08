@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	20080503
-Release:	10%{?dist}
+Release:	11%{?dist}
 Summary:	Tcl extension for Virtual Filesystem support
 Group:		System Environment/Libraries
 License:	MIT
@@ -47,6 +47,9 @@ rm -rf %{buildroot}
 %{_mandir}/mann/vfs*
 
 %changelog
+* Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 20080503-11
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
 * Wed May 21 2014 Jaroslav Škarvada <jskarvad@redhat.com> - 20080503-10
 - Rebuilt for https://fedoraproject.org/wiki/Changes/f21tcl86
 
