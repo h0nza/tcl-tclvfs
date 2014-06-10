@@ -1,9 +1,9 @@
 diff -up tclvfs-20080503/generic/vfs.c.tcl86 tclvfs-20080503/generic/vfs.c
---- tclvfs-20080503/generic/vfs.c.tcl86	2014-06-10 13:49:28.758558734 -0400
-+++ tclvfs-20080503/generic/vfs.c	2014-06-10 13:49:42.673469640 -0400
-@@ -1658,7 +1658,7 @@ VfsRemoveDirectory(
- 
- static Tcl_FSFileAttrStringsProc VfsFileAttrStrings;
+--- tclvfs-20080503/generic/vfs.c.tcl86	2014-06-10 14:06:59.568275464 -0400
++++ tclvfs-20080503/generic/vfs.c	2014-06-10 14:07:54.950900301 -0400
+@@ -1656,7 +1656,7 @@ VfsRemoveDirectory(
+     return returnVal;
+ }
  
 -static CONST char**
 +static const char *CONST86 *
