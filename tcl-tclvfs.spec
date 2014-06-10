@@ -4,17 +4,18 @@
 
 Name:		tcl-%{realname}
 Version:	20080503
-Release:	11%{?dist}
+Release:	12%{?dist}
 Summary:	Tcl extension for Virtual Filesystem support
 Group:		System Environment/Libraries
 License:	MIT
 URL:		http://sourceforge.net/projects/tclvfs
 Source0:	http://downloads.sourceforge.net/%{realname}/%{realname}-%{version}.tar.gz
+Patch0:		tclvfs-20080503-tcl86.patch
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Provides:	tcl-vfs = %{version}-%{release}
 Provides:	%{realname} = %{version}-%{release}
-BuildRequires:	tcl-devel, tk-devel
-Requires:	tcl(abi) = 8.5, tcl-trf
+BuildRequires:	tcl-devel >= 8.6, tk-devel
+Requires:	tcl(abi) = 8.6, tcl-trf
 
 %description
 The TclVfs project aims to provide an extension to the Tcl language which 
@@ -24,6 +25,7 @@ http, webdav, namespace, url)
 
 %prep
 %setup -q -n %{realname}-%{version}
+%patch0 -p1 -b .tcl86
 
 %build
 %configure
@@ -47,6 +49,9 @@ rm -rf %{buildroot}
 %{_mandir}/mann/vfs*
 
 %changelog
+* Tue Jun 10 2014 Tom Callaway <spot@fedoraproject.org> - 20080503-12
+- fix build against tcl 8.6
+
 * Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 20080503-11
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
