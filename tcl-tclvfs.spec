@@ -1,17 +1,16 @@
-%{!?tcl_version: %define tcl_version %(echo 'puts $tcl_version' | tclsh)}
-%{!?tcl_sitearch: %define tcl_sitearch %{_libdir}/tcl%{tcl_version}}
-%define realname tclvfs
+%{!?tcl_version: %global tcl_version %(echo 'puts $tcl_version' | tclsh)}
+%{!?tcl_sitearch: %global tcl_sitearch %{_libdir}/tcl%{tcl_version}}
+%global realname tclvfs
 
 Name:		tcl-%{realname}
 Version:	20080503
-Release:	14%{?dist}
+Release:	15%{?dist}
 Summary:	Tcl extension for Virtual Filesystem support
 Group:		System Environment/Libraries
 License:	MIT
 URL:		http://sourceforge.net/projects/tclvfs
 Source0:	http://downloads.sourceforge.net/%{realname}/%{realname}-%{version}.tar.gz
 Patch0:		tclvfs-20080503-tcl86.patch
-BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 Provides:	tcl-vfs = %{version}-%{release}
 Provides:	%{realname} = %{version}-%{release}
 BuildRequires:	tcl-devel >= 8.6, tk-devel
@@ -33,22 +32,21 @@ sed -i 's|/generic:|\$(srcdir)/generic:|g' Makefile
 make %{?_smp_mflags}
 
 %install
-rm -rf %{buildroot}
 make DESTDIR=%{buildroot} install
 install -d %{buildroot}%{tcl_sitearch}
 mv %{buildroot}%{_libdir}/vfs1.3 %{buildroot}%{tcl_sitearch}/vfs1.3
 chmod +x %{buildroot}%{tcl_sitearch}/vfs1.3/template/fishvfs.tcl
 
-%clean
-rm -rf %{buildroot}
-
 %files
-%defattr(-,root,root,-)
-%doc Readme.txt DESCRIPTION.txt license.terms ChangeLog
+%doc Readme.txt DESCRIPTION.txt ChangeLog
+%license license.terms
 %{tcl_sitearch}/vfs1.3/
 %{_mandir}/mann/vfs*
 
 %changelog
+* Tue Jan 26 2016 Tom Callaway <spot@fedoraproject.org> - 20080503-15
+- modernize spec file
+
 * Fri Jun 19 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 20080503-14
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
