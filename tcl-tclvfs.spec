@@ -4,7 +4,7 @@
 
 Name:		tcl-%{realname}
 Version:	20080503
-Release:	15%{?dist}
+Release:	16%{?dist}
 Summary:	Tcl extension for Virtual Filesystem support
 Group:		System Environment/Libraries
 License:	MIT
@@ -44,6 +44,9 @@ chmod +x %{buildroot}%{tcl_sitearch}/vfs1.3/template/fishvfs.tcl
 %{_mandir}/mann/vfs*
 
 %changelog
+* Fri Feb 05 2016 Fedora Release Engineering <releng@fedoraproject.org> - 20080503-16
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
+
 * Tue Jan 26 2016 Tom Callaway <spot@fedoraproject.org> - 20080503-15
 - modernize spec file
 
