@@ -13,6 +13,7 @@ Source0:	http://downloads.sourceforge.net/%{realname}/%{realname}-%{version}.tar
 Patch0:		tclvfs-20080503-tcl86.patch
 Provides:	tcl-vfs = %{version}-%{release}
 Provides:	%{realname} = %{version}-%{release}
+BuildRequires:  gcc
 BuildRequires:	tcl-devel >= 8.6, tk-devel
 Requires:	tcl(abi) = 8.6, tcl-trf
 
