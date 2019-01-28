@@ -6,7 +6,6 @@ Name:		tcl-%{realname}
 Version:	20080503
 Release:	21%{?dist}
 Summary:	Tcl extension for Virtual Filesystem support
-Group:		System Environment/Libraries
 License:	MIT
 URL:		http://sourceforge.net/projects/tclvfs
 Source0:	http://downloads.sourceforge.net/%{realname}/%{realname}-%{version}.tar.gz
