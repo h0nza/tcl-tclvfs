@@ -1,0 +1,18 @@
+Avoid calling exit without declaring it.  This is part of autoconf-
+generated code, so it is not necessary to update configure.
+
+diff --git a/configure b/configure
+index 2b6f35d4154459bb..b59a30c2d1ead502 100755
+--- a/configure
++++ b/configure
+@@ -3216,8 +3216,8 @@ main ()
+   for (i = 0; i < 256; i++)
+     if (XOR (islower (i), ISLOWER (i))
+ 	|| toupper (i) != TOUPPER (i))
+-      exit(2);
+-  exit (0);
++      return 22;
++  return 0;
+ }
+ _ACEOF
+ rm -f conftest$ac_exeext
